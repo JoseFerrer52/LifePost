@@ -1,3 +1,8 @@
+/* ********** Custom Properties ********** */
+
+/* variables */
+
+/* ********** Reset Styles ********** */
 html {
   font-size: 16px;
 }
@@ -9,16 +14,67 @@ html {
 }
 
 body {
-  background-color: #f5f5f5;
+  background-color: #F5F5F5;
   color: #333;
   font-family: sans-serif;
   line-height: 1.6;
 }
 
+/* ********** Boostrap Styles ********** */
+
+.bg-dark {
+  background-color: #db8125 !important;
+}
+.navbar-brand {
+  font-size: 1.8rem;
+  color: #444 !important;
+  font-weight: bold;
+  display: flex;
+  align-items: flex-start;
+}
+  
+.navbar-brand img {
+  width: auto;
+  height: 2.5rem;
+  
+}
+.navbar-dark .navbar-toggler{
+  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  transition: all 0.3s ease-out;
+}
+
+.navbar-dark .navbar-toggler:hover {
+  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28210, 219, 36, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  opacity: 0.75;
+}
+
+.nav-item {
+  padding-left: 0.5rem;
+  transition: all 0.3s ease-out;
+}
+
+.nav-link {
+  font-size: 1.15rem;
+  color: #eee;
+  text-shadow: 1px 1px 3px #111 !important;
+  font-weight: bold;
+}
+.nav-link.active {
+  color: #444 !important;
+  text-shadow: none !important;
+  font-size: 1.30rem;
+}
+
+.nav-link:hover {
+  color: #000;
+  text-shadow: none !important;
+}
+
+/* ********** My Styles ********** */
+
 a,
 button {
   padding: 0.25rem 0.5rem;
-  margin-right: 0.5rem;
   border-radius: 0.25rem;
   color: #333;
   font-size: 1rem;
@@ -57,12 +113,6 @@ input[type="text"] {
   border: thin solid #ddd;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
 .task-list {
   margin-top: 2rem;
   padding: 0;
@@ -71,7 +121,7 @@ input[type="text"] {
 
 .task-list li {
   background-color: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid #333;
   margin: 10px 0;
   padding: 20px;
   position: relative;
@@ -116,6 +166,31 @@ input[type="text"] {
   text-align: center;
 }
 
-.text-right{
-    text-align: right;
+.text-right {
+  text-align: right;
 }
+
+
+/* // X-Small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) {}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .nav-item:hover {
+    background-color: transparent
+  }
+  
+}
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {}

@@ -1,10 +1,11 @@
 extends layout
 
 block content
+  include partials/navigation
   main.container
     h1= title
     form(action=`/edit/${task.id}` method="POST")
       label(for="title") Nuevo título de la tarea
-      input(type="text", id="title", name="title", value=task.title, required)
-      button.edit-button(type="submit") Editar Tarea
-      a.back-button(href="/") Volver
+      input(class="row container" type="text", id="title", name="title", value=task.title, required)
+      button(class="edit-button btn btn-primary" type="submit") Editar Tarea
+      a(class="back-button btn btn-secondary" href="/") Volver

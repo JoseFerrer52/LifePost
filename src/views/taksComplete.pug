@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    include partials/navigation
+    main(class=" container-fluid p-4 col-12 row")
+        h1.text-start Listado de Tareas
+        div(class="text-start text-start col-lg-6")
+            ul.task-list
+                if tasks.length === 0
+                    li
+                        b.text-start No tienes tareas por hacer 😃👌🏻
+                else
+                    each task in tasks
+                        li(class=task.completed ? "completed": "")
+                            p #{task.title}
+                            a(class="btn btn-warning" href=`/edit/${task.id}`) Editar 
+                            if task.completed
+                                a(class="uncomplete-button btn btn-secondary me-2" href=`/uncomplete/${task.id}`) Desmarcar
+                            else
+                                a(class="complete-button btn btn-success me-2" href=`/complete/${task.id}`) Completar
+                            a(class="delete-button btn btn-danger me-2" href=`/delete/${task.id}`) Eliminar

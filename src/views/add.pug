@@ -1,10 +1,11 @@
 extends layout
 
 block content
-  main.container
+  include partials/navigation
+  main.container-fluid
     h1= title
     form(action="/add" method="POST")
       label(for="title") Titulo de la tarea
-      input(type="text", id="title", name="title", required)
-      button.add-button(type="submit") Agregar Tarea
-      a.back-button(href="/") Volver
+      input(class="row container" type="text", id="title", name="title", required)
+      button(class="add-button btn btn-primary" type="submit") Agregar Tarea
+      a(class="back-button btn btn-secondary" href="/") Volver

@@ -21,7 +21,14 @@ app.use(express.static(join(__dirname, "public/js")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
-app.use(helmet());
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+     defaultSrc: ["'self'"],
+     scriptSrc: ["'self'", 'cdn.jsdelivr.net'], // Permite scripts de otro dominio y de cdn.jsdelivr.net
+     //styleSrc: ["'self'", 'maxcdn.bootstrapcdn.com'], // Ajusta los deominios de donde se sirvan los servicios según sea necesario
+    // fontSrc: ["'self'", 'fonts.gstatic.com'] // Ajusta los dominios de fuentes o estilos según sea necesario 
+  }
+ }));
 app.use(morgan("dev"));
 
 app.use(router)
