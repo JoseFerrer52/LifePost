@@ -8,22 +8,29 @@ html {
 }
 
 * {
-  margin: 0;
+  margin: 0 ;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  background-color: #F5F5F5;
-  color: #333;
+  background-color: #FFFFFF;
+  color: #6E5A43;
   font-family: sans-serif;
-  line-height: 1.6;
+  /* line-height: 1.6; */
 }
 
 /* ********** Boostrap Styles ********** */
 
 .bg-dark {
-  background-color: #db8125 !important;
+  background-color: #89CFF0 !important;
+}
+.bg-color{
+  background-color: #4C7284;
+}
+
+.col-12 {
+ height: 100%;
 }
 .navbar-brand {
   font-size: 1.8rem;
@@ -44,7 +51,7 @@ body {
 }
 
 .navbar-dark .navbar-toggler:hover {
-  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28210, 219, 36, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28111, 91, 68, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   opacity: 0.75;
 }
 
@@ -55,12 +62,12 @@ body {
 
 .nav-link {
   font-size: 1.15rem;
-  color: #eee;
-  text-shadow: 1px 1px 3px #111 !important;
+  color: rgb(111, 91, 68);
+  /* text-shadow: 1px 1px 3px #111 !important; */
   font-weight: bold;
 }
 .nav-link.active {
-  color: #444 !important;
+  color: #6E5A43 !important;
   text-shadow: none !important;
   font-size: 1.30rem;
 }
@@ -70,48 +77,68 @@ body {
   text-shadow: none !important;
 }
 
+.row{
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
 /* ********** My Styles ********** */
 
-a,
+/* a,
 button {
-  padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   color: #333;
   font-size: 1rem;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease-out;
-}
+  display: flex !important;
+  align-items: flex-end !important;
+} */
 
 button {
   border: 0;
   outline: 0;
 }
 
+form {
+  margin: 1rem auto;
+ 
+}
+
 a:hover {
   opacity: 0.75;
 }
 
+/* .display-none{
+  display: none;
+} */
 h1 {
   font-size: 2rem;
 }
-
-form {
-  margin: 2rem auto;
+article{
+  margin-top: 3.5rem !important;
+  border-radius: 10px;
+  border: solid 2px #00000079;
+  background-color: #A87D4A;
 }
+.header-post{
+  background-color:  #ddd;
+  border: 1px solid #333;
+  border-radius: 10px  10px 0 0;
+  margin-top: 1rem;
+  text-align: left;
+  font-size: 1.25rem;
+  color: #6E5A43;
 
+
+}
 label {
   display: block;
   font-weight: bold;
-  margin-bottom: 0.25rem;
 }
 
-input[type="text"] {
-  width: 100%;
-  padding: 0.5rem;
-  margin: 0.25rem 0;
-  border: thin solid #ddd;
-}
+
 
 .task-list {
   margin-top: 2rem;
@@ -122,8 +149,7 @@ input[type="text"] {
 .task-list li {
   background-color: #fff;
   border: 1px solid #333;
-  margin: 10px 0;
-  padding: 20px;
+  padding: 1rem 1rem 0;
   position: relative;
 }
 
@@ -142,9 +168,48 @@ input[type="text"] {
   display: none;
 }
 
+footer{
+  text-shadow: 1px 1px 3px #000;
+  color: #ccc;;
+}
+
+footer a {
+  text-shadow: 1px 1px 3px #000;
+  color: #ccc;;
+}
+.footer-post{
+  background-color: #ddd;
+  border: 1px solid #333;
+ border-radius: 0 0 7px 7px;
+ /* text-align: start; */
+ font-size: 1.25rem;
+ color: #6E5A43 ;
+ 
+}
+
+.heart {
+  display: flex;
+  flex-direction:row;
+  justify-content: end;
+  align-items: flex-end;
+  width: 100px;
+  height: 100px;
+  background: url("animacion-like-twitter.png")
+    no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+  transition: background-position 1s steps(28);
+  transition-duration: 0s;
+
+  &.is-active {
+    transition-duration: 1s;
+    background-position: -2800px 0;
+  }
+}
+
 .uncomplete-button {
   background-color: #333;
-  color: #fff;
+  color: #bbb;
 }
 
 .delete-button {
@@ -162,6 +227,7 @@ input[type="text"] {
   background-color: #666;
   color: #fff;
 }
+
 .text-center {
   text-align: center;
 }
@@ -170,27 +236,90 @@ input[type="text"] {
   text-align: right;
 }
 
+textarea{
+  resize: none;
+}
+
+p{
+  font-size: 1.5rem;
+}
+
+.nav-post{
+  color: #6E5A43;
+}
 
 /* // X-Small devices (portrait phones, less than 576px)
 // No media query for `xs` since this is the default in Bootstrap
 
 // Small devices (landscape phones, 576px and up) */
 
-@media (min-width: 576px) {}
+@media screen and (max-width: 576px) {
+ 
+  p{
+    font-size: 17px !important;
+  }
+  .pt-5{
+    margin-top: 0 !important;
+    padding-top: 1rem !important;
+  }
+
+  @media screen and (max-width: 768px) {
+    h1{
+      font-size: 1.25rem !important;
+    }
+    
+  }
+}
+
+@media screen and (max-width: 320px) {
+ 
+  p{
+    font-size: 15px !important;
+  }
+
+  .pt-5{
+    margin-top: 0 !important;
+    padding-top: 1rem !important;
+  }
+
+  h1{
+    font-size: 1rem !important;
+  }
+
+}
+
+
+
+
 
 /* // Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {}
 
 /* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-  .nav-item:hover {
-    background-color: transparent
+
+@media screen and (max-width: 992px) {
+    .pt-5{
+    margin-top: 0 !important;
+    padding-top: 2rem !important;
   }
+
+  article{
+    margin-top: 1rem !important;
+  }
+
+  h1{
+    font-size: 1.5rem;
+  }
+}
+
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+ 
+}
+
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
   
 }
 
-/* // X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {}
-
-/* // XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) {}

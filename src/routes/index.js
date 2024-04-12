@@ -1,77 +1,49 @@
 import { Router } from "express";
+import { readDatabase, writeDatabase } from "../services/database.js";
+import { createFormValidation, validate } from "./validations.js";
+
 
 const router = Router();
 let tasks = [
-  { id: 1, title: "tarea 1", completed: false },
+  { id: 1, title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi saepe, nostrum dolorum ex sint quibusdam odit explicabo, fugiat obcaecati distinctio neque excepturi aspernatur. Voluptatem eos explicabo quo dolorum at eum, enim ipsam officia adipisci consequatur. Quis asperiores odio porro. Architecto asperiores sed vitae, deserunt pariatur voluptates molestiae quasi adipisci porro culpa voluptatem sint? Neque, blanditiis sit molestias recusandae vel itaque voluptatibus laudantium iste, incidunt doloribus eius porro maiores non rerum quam saepe repellendus reiciendis officia optio dolore aperiam sequi. Nam iure placeat excepturi, sunt, in dicta, provident rerum minus perspiciatis vitae eligendi sapiente eveniet dolorum sequi blanditiis esse! Veniam, necessitatibus?", completed: false },
   { id: 2, title: "tarea 2", completed: true },
 ];
 
+let date = new Date()
+let day = date.getDate()
+let month = date.getMonth() + 1
+let year = date.getFullYear()
+let fullDate = `${day}/${month}/${year}`
+let name = "Pedro"
+
 router.get("/", (req, res) => {
-  res.render("index.pug", { title: "TaksList", tasks });
+  res.render("index.pug", { title: "LifePost", tasks: tasks, fullDate: fullDate, name:name });
 });
 
 router.get("/add", (req, res) => {
-  res.render("add.pug", { title: "Agregar Tarea" });
+  res.render("add.pug", { title: "Agregar Tarea", fullDate: fullDate});
 });
 
-router.post("/add", (req, res) => {
-  // console.log(req.body);
+router.post("/add", validate(createFormValidation),async (req, res) => {
+
+  console.log(req.body);
   let { title } = req.body;
+  let {nameUser} = req.body
+  let {date} = req.body
+  
+  const tasks = await readDatabase();
   let id = tasks.length + 1;
-  tasks.push({ id: id, title: title, completed: false });
-  res.redirect("/");
+  tasks.push({ id: id, title: title, date: date, completed: false });
+
+  await writeDatabase(tasks);
+  res.status(200).json({
+    status: 200,
+    message: "reseña guardada con exito"
+
+  })
 });
 
-router.get("/edit/:id", (req, res) => {
-  let id = parseInt(req.params.id);
-  let task = tasks.find((task) => task.id === id);
-  //console.log(task);
 
-  if (!task) {
-    res.redirect("/");
-  } else {
-    res.render("edit.pug", { title: "Editar Tarea", task });
-  }
-});
-
-router.post("/edit/:id", (req, res) => {
-  let id = parseInt(req.params.id);
-  let taskIndex = tasks.findIndex((task) => task.id === id);
-  //console.log(taskIndex);
-
-  if (taskIndex === -1) {
-    res.redirect("/");
-  } else {
-    tasks[taskIndex].title = req.body.title;
-    res.redirect("/");
-  }
-});
-
-router.get("/taksComplete", (req, res) => {
-  res.render("index.pug", { title: "TaksList", tasks });
-});
-
-router.get("/complete/:id", (req, res) => {
-  let id = parseInt(req.params.id);
-  let task = tasks.find((task) => task.id === id);
-
-  if (task) {
-    task.completed = true;
-  }
-
-  res.redirect("/");
-});
-
-router.get("/uncomplete/:id", (req, res) => {
-  let id = parseInt(req.params.id);
-  let task = tasks.find((task) => task.id === id);
-
-  if (task) {
-    task.completed = false;
-  }
-
-  res.redirect("/");
-});
 
 router.get("/delete/:id", (req, res) => {
   let id = parseInt(req.params.id);

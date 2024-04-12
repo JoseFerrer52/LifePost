@@ -1,8 +1,8 @@
-nav(class="navbar sticky-top navbar-expand-lg bg-dark navbar-dark")
-  div.container
+nav(class="navbar sticky-top navbar-expand-lg bg-dark navbar-dark pe-7 ps-7")
+  div(class="container")
     a(class="navbar-brand" href="/") 
       img(src="favicon.png" alt="TaksList") 
-      span TaksList
+      span(class="nav-post") LifePost
     button(class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
       span.navbar-toggler-icon
     div.collapse.navbar-collapse#navbarNav
@@ -10,6 +10,4 @@ nav(class="navbar sticky-top navbar-expand-lg bg-dark navbar-dark")
         li.nav-item
           a.nav-link.active(aria-current="page" href="/") Inicio
         li.nav-item
-          a.nav-link(href="/add") Agregar Tareas
-        li.nav-item
-          a.nav-link(href="/taksComplete") Tareas completadas
+          a.nav-link(href="/add") Comparte una reseña
