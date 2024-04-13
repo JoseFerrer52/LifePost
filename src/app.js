@@ -39,7 +39,7 @@ app.use((error,req,res,next)=>{
     status:"error",
     message: error.message
   })
-  console.log(error.message)
+  console.log(error)
 })
 
 app.listen(port, () => {

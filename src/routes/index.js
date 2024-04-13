@@ -24,18 +24,17 @@ router.get("/add", (req, res) => {
   res.render("add.pug", { title: "Agregar Tarea", fullDate: fullDate});
 });
 
-router.post("/add", validate(createFormValidation),async (req, res) => {
-
-  console.log(req.body);
-  let { title } = req.body;
-  let {nameUser} = req.body
-  let {date} = req.body
+router.post("/add", validate(createFormValidation), async (req, res) => {
   
   const tasks = await readDatabase();
+  console.log(createFormValidation);
+  let { title, nameUser, date } = req.body;
+  
   let id = tasks.length + 1;
-  tasks.push({ id: id, title: title, date: date, completed: false });
+  tasks.push({ id: id, title: title, date: date, nameUser: nameUser, completed: false });
 
   await writeDatabase(tasks);
+
   res.status(200).json({
     status: 200,
     message: "reseña guardada con exito"

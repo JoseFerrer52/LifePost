@@ -7,37 +7,43 @@
   {
     "id": 2,
     "title": "hola mundo",
+    "date": "12/4/2024",
+    "nameUser": "pedro",
     "completed": false
   },
   {
     "id": 3,
-    "title": "hola mundo",
+    "title": "esto es una prueba",
+    "date": "17/4/2024",
+    "nameUser": "pedro prueba",
     "completed": false
   },
   {
     "id": 4,
-    "title": "hola mundo 3",
+    "title": "hola mundo",
+    "date": "12/4/2024",
+    "nameUser": "pedro pruebas",
     "completed": false
   },
   {
     "id": 5,
-    "title": "hola mundo con fecha",
+    "title": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi saepe, nostrum dolorum ex sint quibusdam odit explicabo, fugiat obcaecati distinctio neque excepturi aspernatur. Voluptatem eos explicabo quo dolorum at eum, enim ipsam officia adipisci consequatur. Quis asperiores odio porro. Architecto asperiores sed vitae, deserunt pariatur voluptates molestiae quasi adipisci porro culpa voluptatem sint? Neque, blanditiis sit molestias recusandae vel itaque voluptatibus laudantium iste, incidunt doloribus eius porro maiores non rerum quam saepe repellendus reiciendis officia optio dolore aperiam sequi. Nam iure placeat excepturi, sunt, in dicta, provident rerum minus perspiciatis vitae eligendi sapiente eveniet dolorum sequi blanditiis esse! Veniam, necessitatibus?",
+    "date": "12/4/2024",
+    "nameUser": "",
     "completed": false
   },
   {
     "id": 6,
-    "title": "Hola mundo con Fecha",
+    "title": "hola mundo",
+    "date": "12/4/2024",
+    "nameUser": "",
     "completed": false
   },
   {
     "id": 7,
-    "title": "que tal",
-    "completed": false
-  },
-  {
-    "id": 8,
     "title": "hola mundo",
-    "date": "11/4/2024",
+    "date": "12/4/2024",
+    "nameUser": "",
     "completed": false
   }
 ]

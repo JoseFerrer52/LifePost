@@ -9,9 +9,9 @@ block content
         div(class="mb-3")
           label(for="exampleFormControlInput1" class="form-label") Nombre
           input(id="nameUser" type="text" class="form-control" placeholder="Ingresa tu nombre" name="nameUser")
-        div(class="mb-3")
+        div(class="display-none mb-3")
           label(for="exampleFormControlInput1" class="form-label") Fecha
-          input(class="display-none" id="date" readonly type="text" value=fullDate class="form-control" name="date")
+          input( id="date" readonly type="text" value=fullDate class="form-control" name="date")
         div(class="mb-3")
           label(for="exampleFormControlTextarea1" class="form-label") Escribe tu reseña
           textarea(class="form-control" id="title" rows="5" cols="40" placeholder="Escribe tu reseña" name="title" value="" required)

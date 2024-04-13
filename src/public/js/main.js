@@ -4,13 +4,11 @@ let title
 let date
 let like = document.querySelector(".heart");
 
-like.addEventListener("click", function() {
+/* like.addEventListener("click", function() {
     like.classList.toggle("is-active");
 });
+ */
 
-
-
-/* 
 form.addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -45,4 +43,4 @@ async function uploadData(nameUser, title, date) {
       alert(error);
       console.log(error);
     }
-} */
+}
