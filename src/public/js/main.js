@@ -1,5 +1,5 @@
 const form = document.getElementById("formData");
-let nameUser
+let userName
 let title
 let date
 let like = document.querySelector(".heart");
@@ -12,19 +12,19 @@ let like = document.querySelector(".heart");
 form.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    nameUser = form.nameUser.value
+    userName = form.userName.value
     title = form.title.value
     date = form.date.value
     
-    uploadData(nameUser, title, date)
+    uploadData(userName, title, date)
 
     console.log(date);
     form.reset()
 })
 
       
-async function uploadData(nameUser, title, date) {
-    const data = { nameUser, title, date };
+async function uploadData(userName, title, date) {
+    const data = { userName, title, date };
   
     try {
       const response = await fetch("/add", {

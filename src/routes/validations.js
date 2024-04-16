@@ -1,30 +1,35 @@
-import yup from "yup"
+import yup from "yup";
 
-function validate(createFormValidation){
-    try{
-    return(req, res, next) =>{
-        createFormValidation(req.body)
-        next()
-    }
-
-    }catch(error){
-        next(error)
-    }
+function validate(createFormValidation) {
+    return async (req, res, next) => {
+        try {
+            // se utiliza validate en lugar de validateSync para trabajar con promesas
+            const validatedData = await createFormValidation(req.body);
+            // se actualiza req.body con los datos validados y modificados
+            req.body = validatedData
+            //console.log(req.body);
+            next();
+        } catch (error) {
+            next(error);
+        }
+    };
 }
-function createFormValidation(data) {
+
+async function createFormValidation(data) {
     const schema = yup.object().shape({
-        nameUser: yup.string()
-            .when('$nameUser', {
-                is: (nameUser) => !nameUser, // Si nameUser es undefined o vacío
-                then: (nameUser) => nameUser.default('anonimo'), // Establece el valor por defecto a "anonimo"
-                otherwise: yup.string().min(1).max(50).matches(/^[a-z]+$/), // Si se proporciona un nombre, aplica las reglas existentes
-            }),
-        title: yup.string().required(),
+        userName: yup.string()
+            .transform((value, originalValue) =>{
+                 // Si el valor original es vacío, se establece "anonimo" como valor por defecto
+                 if (!originalValue) return 'anonimo';
+                return value
+            })
+            .min(1).max(50, "Nombre muy largo").matches(/^[a-z]+$/, "solo se admiten acracteres de la a-z"), // Si se proporciona un nombre y se aplica las reglas existentes
+        title: yup.string("Este campo no puede estar vacio").required(),
+        date: yup.string().matches(/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(\d{2})$/, 'La fecha debe estar en formato dd/mm/yy').required(),
     });
 
-    // Asegúrate de pasar el contexto con el valor de nameUser al validar
-    schema.validateSync(data);
+    const validatedData = await schema.validate(data);
+    return validatedData
 }
 
-export{validate,
-    createFormValidation}
+export { validate, createFormValidation };

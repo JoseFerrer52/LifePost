@@ -13,10 +13,10 @@ block content
           each task in tasks
             div(class="header-post bg-color")
               div(class="container-flud")
-                span #{name}
+                span #{task.userName}
             li #{task.title}
             div(class="footer-post bg-color")
               div(class="container-flud")
-                span(class="text-start") #{fullDate}
+                span(class="text-start") #{task.date}
                   div(class="placement")
                       div(class="heart")

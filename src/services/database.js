@@ -1,10 +1,13 @@
+import { dirname, join } from "path";
+import { fileURLToPath } from "url"; 
 import fs from 'fs';
 import { promisify } from 'util';
 
+
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
-
-const databasePath = "./src/services/database.json"; // Cambia esto por la ruta a tu archivo JSON.
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const databasePath = join(__dirname, "/database.json") // Cambia esto por la ruta a tu archivo JSON.
 
 async function readDatabase() {
     try {
