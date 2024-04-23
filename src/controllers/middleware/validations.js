@@ -1,4 +1,5 @@
 import yup from "yup";
+import { validationError } from "../../utils/validationError.js";
 
 function validate(createFormValidation) {
     return async (req, res, next) => {
@@ -10,7 +11,7 @@ function validate(createFormValidation) {
             //console.log(req.body);
             next();
         } catch (error) {
-            next(error);
+            next(new validationError(error));
         }
     };
 }
@@ -25,7 +26,7 @@ async function createFormValidation(data) {
             })
             .min(1).max(50, "Nombre muy largo").matches(/^[a-z]+$/, "solo se admiten acracteres de la a-z"), // Si se proporciona un nombre y se aplica las reglas existentes
         title: yup.string("Este campo no puede estar vacio").required(),
-        date: yup.string().matches(/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(\d{2})$/, 'La fecha debe estar en formato dd/mm/yy').required(),
+        date: yup.string().matches(/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(\d{2,4})$/, 'La fecha debe estar en formato dd/mm/yy').required(),
     });
 
     const validatedData = await schema.validate(data);

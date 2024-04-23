@@ -4,10 +4,10 @@ import helmet from "helmet";
 import morgan from "morgan";
 import { dirname, join } from "path"; 
 import { fileURLToPath } from "url"; 
-import errorController from "./controllers/errorController.js";
-import router  from "./routes/index.js";
+import { routerError} from "./utils/routerError.js";
+import { resError } from "./utils/resError.js";
+import {router}  from "./routes/index.js";
 import pug from "pug"
-import { error } from "console";
 
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url)); 
@@ -33,14 +33,13 @@ app.use(helmet.contentSecurityPolicy({
 app.use(morgan("dev"));
 
 app.use(router)
-app.use(errorController.error404);
-app.use((error,req,res,next)=>{
-  res.status(400).json({
-    status:"error",
-    message: error.message
-  })
-  console.log(error)
+app.use(routerError);
+app.use((error, req, res, next)=>{
+  const {status, message, path, name} = error
+  resError(res, status, message, name, path)
 })
+
+
 
 app.listen(port, () => {
   console.log(`La aplicación está funcionando en http://localhost:${port}`);
