@@ -1,8 +1,8 @@
 extends layout 
 
-block content 
-  main.container 
-    h1= name  
-    p 
-     b= message 
-    a.back-button(href="/") Volver
+block content
+  include partials/navigation
+  main(class="container-fluid row px-5") 
+    h1(class="text-center pt-2  fs-1")= name  
+    p(class="text-center")= message 
+    a(class="add-button d-inline-flex align-items-center justify-content-center btn btn-primary p-3" href="/") Ir al inicio

@@ -8,10 +8,12 @@ import { routerError} from "./utils/routerError.js";
 import { resError } from "./utils/resError.js";
 import {router}  from "./routes/index.js";
 import pug from "pug"
+import dontev from "dotenv"
 
+dontev.config()
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url)); 
-const port = 5500;
+const port = process.env.PORT || 5500;
 
 app.set("views", join(__dirname, "views"));
 app.set("view engine", pug);
@@ -25,9 +27,7 @@ app.use(cors());
 app.use(helmet.contentSecurityPolicy({
   directives: {
      defaultSrc: ["'self'"],
-     scriptSrc: ["'self'", 'cdn.jsdelivr.net'], // Permite scripts de otro dominio y de cdn.jsdelivr.net
-     //styleSrc: ["'self'", 'maxcdn.bootstrapcdn.com'], // Ajusta los deominios de donde se sirvan los servicios según sea necesario
-    // fontSrc: ["'self'", 'fonts.gstatic.com'] // Ajusta los dominios de fuentes o estilos según sea necesario 
+     scriptSrc: ["'self'", 'cdn.jsdelivr.net'],
   }
  }));
 app.use(morgan("dev"));
@@ -42,5 +42,5 @@ app.use((error, req, res, next)=>{
 
 
 app.listen(port, () => {
-  console.log(`La aplicación está funcionando en http://localhost:${port}`);
+  //console.log(`La aplicación está funcionando en el puerto ${port}`);
 });

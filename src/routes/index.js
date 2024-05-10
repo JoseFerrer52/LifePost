@@ -1,5 +1,8 @@
 import { Router } from "express";
-import { createFormValidation, validate } from "../controllers/middleware/validations.js";
+import {
+  createFormValidation,
+  validate,
+} from "../controllers/middleware/validations.js";
 import {
   getindexControllers,
   getAddcontrollers,
@@ -23,4 +26,4 @@ router.post(
   cachedAsync(postAddControllers)
 );
 
-export {router};
+export { router };

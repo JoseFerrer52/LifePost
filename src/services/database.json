@@ -1,73 +1,9 @@
 [
   {
-    "id": 5,
-    "title": "Hola mundo",
-    "date": "15/4/2024",
-    "userName": "anonimo",
-    "completed": false
-  },
-  {
-    "id": 6,
-    "title": "con",
-    "date": "15/4/2024",
-    "userName": "l",
-    "completed": false
-  },
-  {
-    "id": 7,
-    "title": "hola\n",
-    "date": "15/4/2024",
-    "userName": "anonimo",
-    "completed": false
-  },
-  {
-    "id": 8,
-    "title": "Hola Mundo",
-    "date": "15/4/2024",
-    "userName": "anonimo",
-    "completed": false
-  },
-  {
-    "id": 5,
-    "title": "hola mundo",
-    "date": "16/04/2024",
-    "userName": "anonimo",
-    "completed": false
-  },
-  {
-    "id": 6,
-    "title": "Texto de prueba",
-    "date": "24/07/2017",
-    "completed": false
-  },
-  {
-    "id": 7,
-    "title": "Texto de prueba",
-    "date": "24/07/2017",
-    "completed": false
-  },
-  {
-    "id": 8,
-    "title": "Texto de prueba 2",
-    "date": "24/07/2017",
-    "completed": false
-  },
-  {
-    "id": 9,
-    "title": "Texto de prueba 2",
-    "date": "24/07/2017",
-    "completed": false
-  },
-  {
-    "id": 10,
-    "title": "Texto de prueba 2",
-    "date": "24/07/2017",
-    "completed": false
-  },
-  {
-    "id": 11,
-    "title": "Texto de prueba 2",
-    "date": "24/07/17",
+    "userId": 2,
+    "userPost": "Hace tiempo, tomé la decisión de adentrarme en el maravilloso mundo de la programación. Al principio, todo era muy complicado; incluso hubo momentos en los que casi me rindo. Me venían pensamientos con frases como “tal vez esto no es para mí” o “tal vez debería intentar otra cosa”. Era muy frustrante. Sin embargo, no me rendí y seguí creyendo en lo que consideraba correcto. Y no me equivoqué. Con el pasar del tiempo, he logrado aprender y hacer cosas que en aquel entonces creía que nunca podría hacer.\n\nCon esta reflexión, quiero decirte que no abandones tus sueños y continúa con lo que tú creas que es lo correcto para ti, ya que todo se puede. Sé que las cosas no son tan fáciles; sin embargo, no hay que darse por vencido por más trabas y obstáculos que te encuentres. No te rindas y continúa.\n\n“Cuanto más grande es la dificultad, más gloria hay en superarla.” - Epícuro",
+    "userDate": "09/05/2024",
+    "userName": "Administrador",
     "completed": false
   }
 ]

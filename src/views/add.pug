@@ -5,14 +5,13 @@ block content
   main(class="container-fluid pt-5 12 p-5 row")
     p(class="col-lg-6 pt-5") "Comparte tu experiencia de vida y tus motivaciones con nuestra comunidad. Tu historia es única y puede inspirar a otros. ¡Dale voz a tus metas, sueños y lecciones aprendidas! Aquí es donde puedes influir positivamente en los demás a través de tus palabras. ¡Estamos emocionados de conocer tu historia!"
     article(class=" py-3 col-lg-6 col-md-12 align-self-end")
-      form( action="/add" id="formData")
-        div(class="mb-3")
-          label(for="exampleFormControlInput1" class="form-label") Nombre
-          input(id="userName" type="text" class="form-control" placeholder="Ingresa tu nombre" name="userName")
+      form( action="/add" class="d-flex justify-content-center flex-column" id="formData")
+        div(class="mb-4")
+          label(for="exampleFormControlInput1" class="form-label mb-1") Nombre (Opcional)
+          input(id="userName" type="text" class="form-control form-sahdow" placeholder="Ingresa tu nombre" name="userName")
         div(class="display-none mb-3")
-          label(for="exampleFormControlInput1" class="form-label") Fecha
           input( id="date" readonly type="text" value=fullDate class="form-control" name="date")
-        div(class="mb-3")
-          label(for="exampleFormControlTextarea1" class="form-label") Escribe tu reseña
-          textarea(class="form-control" id="title" rows="5" cols="40" placeholder="Escribe tu reseña" name="title" value="" required)
-        button(class=" add-button btn btn-primary justify-content-end" type="submit" id="button") Agregar Tarea
+        div(class="mb-4")
+          label(for="exampleFormControlTextarea1" class="form-label mb-1") Escribe tu reseña*
+          textarea(class="form-control form-sahdow" id="title" rows="5" cols="40" spellcheck="true" placeholder="Cuentanos tu historia..." name="title" value="" required)
+        button(class="add-button btn btn-primary" type="submit" id="button") Agregar Tarea

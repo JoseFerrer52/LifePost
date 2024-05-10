@@ -1,36 +1,43 @@
-/* ********** Custom Properties ********** */
-
-/* variables */
-
 /* ********** Reset Styles ********** */
 html {
   font-size: 16px;
 }
 
 * {
-  margin: 0 ;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  background-color: #FFFFFF;
-  color: #6E5A43;
+  background-image: url("background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #f2f2f2;
+  color: #6e5a43;
+  display: flex;
+  min-height: 100vh;
+  position: relative;
   font-family: sans-serif;
+  flex-flow: column wrap;
   /* line-height: 1.6; */
 }
 
 /* ********** Boostrap Styles ********** */
 
 .bg-dark {
-  background-color: #89CFF0 !important;
+  background-color: #89cff0 !important;
 }
-.bg-color{
-  background-color: #4C7284;
+.bg-color {
+  background-color: #4c7284;
 }
 
 .col-12 {
- height: 100%;
+  height: 100%;
+}
+
+.fs-1 {
+  font-size: 3.5rem !important;
 }
 .navbar-brand {
   font-size: 1.8rem;
@@ -39,13 +46,12 @@ body {
   display: flex;
   align-items: flex-start;
 }
-  
+
 .navbar-brand img {
   width: auto;
   height: 2.5rem;
-  
 }
-.navbar-dark .navbar-toggler{
+.navbar-dark .navbar-toggler {
   --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   transition: all 0.3s ease-out;
 }
@@ -67,9 +73,9 @@ body {
   font-weight: bold;
 }
 .nav-link.active {
-  color: #6E5A43 !important;
+  color: #6e5a43 !important;
   text-shadow: none !important;
-  font-size: 1.30rem;
+  font-size: 1.3rem;
 }
 
 .nav-link:hover {
@@ -77,68 +83,92 @@ body {
   text-shadow: none !important;
 }
 
-.row{
+.pt-2 {
+  padding-top: 7rem !important;
+}
+
+.row {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
 
 /* ********** My Styles ********** */
-
-/* a,
-button {
-  border-radius: 0.25rem;
-  color: #333;
-  font-size: 1rem;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease-out;
-  display: flex !important;
-  align-items: flex-end !important;
-} */
-
-button {
-  border: 0;
-  outline: 0;
+.add-button,
+.edit-button {
+  color: #fff;
 }
 
-form {
-  margin: 1rem auto;
- 
+.add-button {
+  box-shadow: 1px 1px 2px #444;
+  max-width: 100%;
+  /* transition: all .3s ease-in-out; */
+}
+
+article {
+  margin-top: 3.5rem !important;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px 1px #aaa;
+  background-color: #89cff0;
 }
 
 a:hover {
   opacity: 0.75;
 }
 
-.display-none{
+button {
+  border: 0;
+  outline: 0;
+}
+
+.display-none {
   display: none;
 }
+
+form {
+  margin: 1rem auto;
+}
+
+.form-sahdow {
+  box-shadow: 0 0 10px 3px #cdcdcd inset;
+}
+
+footer {
+  text-shadow: 1px 1px 3px #000;
+  color: #ccc;
+  flex-grow: inherit;
+  margin-top: auto;
+}
+
+footer a {
+  text-shadow: 1px 1px 3px #000;
+  color: #ccc;
+}
+
+.footer-post {
+  font-size: 1.25rem;
+  color: #6e5a43;
+}
+
 h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
-article{
-  margin-top: 3.5rem !important;
-  border-radius: 10px;
-  border: solid 2px #00000079;
-  background-color: #A87D4A;
-}
-.header-post{
-  background-color:  #ddd;
-  border: 1px solid #333;
-  border-radius: 10px  10px 0 0;
-  margin-top: 1rem;
+
+.header-post {
+  background-color: rgba(238, 238, 238, 0.75);
   text-align: left;
   font-size: 1.25rem;
-  color: #6E5A43;
-
-
+  color: #6e5a43;
+  border-radius: 10px 10px 0 0;
 }
+
 label {
   display: block;
   font-weight: bold;
 }
 
-
+.nav-post {
+  color: #6e5a43;
+}
 
 .task-list {
   margin-top: 2rem;
@@ -147,179 +177,77 @@ label {
 }
 
 .task-list li {
-  background-color: #fff;
-  border: 1px solid #333;
-  padding: 1rem 1rem 0;
   position: relative;
 }
 
-.task-list li.completed {
-  background-color: #ccc;
-  opacity: 0.5;
-  text-decoration: line-through;
-}
-
-.complete-button {
-  background-color: #0c9344;
-  color: #fff;
-}
-
-.completed .complete-button {
-  display: none;
-}
-
-footer{
-  text-shadow: 1px 1px 3px #000;
-  color: #ccc;;
-}
-
-footer a {
-  text-shadow: 1px 1px 3px #000;
-  color: #ccc;;
-}
-.footer-post{
-  background-color: #ddd;
-  border: 1px solid #333;
- border-radius: 0 0 7px 7px;
- /* text-align: start; */
- font-size: 1.25rem;
- color: #6E5A43 ;
- 
-}
-
-.heart {
-  display: flex;
-  flex-direction:row;
-  justify-content: end;
-  align-items: flex-end;
-  width: 100px;
-  height: 100px;
-  background: url("animacion-like-twitter.png")
-    no-repeat;
-  background-position: 0 0;
-  cursor: pointer;
-  transition: background-position 1s steps(28);
-  transition-duration: 0s;
-
-  &.is-active {
-    transition-duration: 1s;
-    background-position: -2800px 0;
-  }
-}
-
-.uncomplete-button {
-  background-color: #333;
-  color: #bbb;
-}
-
-.delete-button {
-  background-color: #e74c3c;
-  color: #fff;
-}
-
-.add-button,
-.edit-button {
-  background-color: #1e99ec;
-  color: #fff;
-}
-
-.back-button {
-  background-color: #666;
-  color: #fff;
-}
-
-.text-center {
-  text-align: center;
+.task-container {
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px 1px #aaa;
+  background-color: #fff;
+  padding: 0;
 }
 
 .text-right {
   text-align: right;
 }
 
-textarea{
+textarea {
   resize: none;
 }
 
-p{
+p {
   font-size: 1.5rem;
 }
 
-.nav-post{
-  color: #6E5A43;
-}
-
-/* // X-Small devices (portrait phones, less than 576px)
-// No media query for `xs` since this is the default in Bootstrap
-
-// Small devices (landscape phones, 576px and up) */
-
 @media screen and (max-width: 576px) {
- 
-  p{
+  p {
     font-size: 17px !important;
   }
-  .pt-5{
+  .pt-5 {
     margin-top: 0 !important;
     padding-top: 1rem !important;
   }
+}
 
-  @media screen and (max-width: 768px) {
-    h1{
-      font-size: 1.25rem !important;
-    }
-    
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 1.25rem !important;
   }
 }
 
 @media screen and (max-width: 320px) {
- 
-  p{
+  p {
     font-size: 15px !important;
   }
 
-  .pt-5{
+  .pt-5 {
     margin-top: 0 !important;
     padding-top: 1rem !important;
   }
 
-  h1{
+  h1 {
     font-size: 1rem !important;
   }
-
 }
 
-
-
-
-
-/* // Medium devices (tablets, 768px and up) */
-
-/* // Large devices (desktops, 992px and up) */
-
 @media screen and (max-width: 992px) {
-    .pt-5{
+  .pt-5 {
     margin-top: 0 !important;
     padding-top: 2rem !important;
   }
 
-  article{
+  article {
     margin-top: 1rem !important;
   }
 
-  h1{
+  h1 {
     font-size: 1.5rem;
   }
 }
 
-
-/* // X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
- 
+@media screen and (min-width: 992px) {
+  .add-button {
+    width: 50%;
+    margin: 0 auto;
+  }
 }
-
-
-/* // XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) {
-  
-}
-

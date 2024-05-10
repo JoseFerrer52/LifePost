@@ -1,46 +1,41 @@
 const form = document.getElementById("formData");
-let userName
-let title
-let date
-let like = document.querySelector(".heart");
+let userName;
+let userPost;
+let userDate;
 
-/* like.addEventListener("click", function() {
-    like.classList.toggle("is-active");
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  userName = form.userName.value;
+  userPost = form.title.value;
+  userDate = form.date.value;
+
+  uploadData(userName, userPost, userDate);
+  form.reset();
 });
- */
 
-form.addEventListener("submit", function(event) {
-    event.preventDefault();
+async function uploadData(userName, userPost, userDate) {
+  const data = { userName, userPost, userDate };
 
-    userName = form.userName.value
-    title = form.title.value
-    date = form.date.value
-    
-    uploadData(userName, title, date)
+  try {
+    const response = await fetch("/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
 
-    console.log(date);
-    form.reset()
-})
+    const responseText = await response.json();
+    console.log(responseText);
 
-      
-async function uploadData(userName, title, date) {
-    const data = { userName, title, date };
-  
-    try {
-      const response = await fetch("/add", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data),
-      });
-  
-      const responseText = await response.json();
-  
-      console.log(responseText);
-      
-    } catch (error) {
-      alert(error);
-      console.log(error);
+    if (responseText.error === true) {
+      throw responseText.message;
+    } else {
+      alert(responseText.message);
     }
+  } catch (error) {
+    alert(error || "Error desconocido");
+    console.log(error);
+  }
 }

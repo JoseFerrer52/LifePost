@@ -1,22 +1,17 @@
 extends layout
 
 block content
-  include partials/navigation
-  main(class="container pt-4 col-12")
+ include partials/navigation
+ main(class="container pt-5 col-12")
     h1.text-center "Bienvenido a nuestra vibrante comunidad donde las experiencias se comparten y las motivaciones se celebran. Aquí puedes descubrir historias inspiradoras, metas ambiciosas y valiosas lecciones de vida compartidas por personas de todo el mundo. Explora, conecta y déjate inspirar. ¿Quién sabe? Quizás encuentres la chispa que necesitas para dar el siguiente paso en tu propio viaje."
     div(class="col-lg-12")
       ul(class="task-list row")
-        if tasks.length === 0
-          li
-            b.text-start No tienes tareas por hacer 😃👌🏻
-        else
-          each task in tasks
-            div(class="header-post bg-color")
-              div(class="container-flud")
-                span #{task.userName}
-            li #{task.title}
-            div(class="footer-post bg-color")
-              div(class="container-flud")
-                span(class="text-start") #{task.date}
-                  div(class="placement")
-                      div(class="heart")
+          each task, index in tasks
+            div(class="task-container mb-4")
+               div(class="header-post px-2 ")
+                 div(class="container-flud p-1")
+                    span #{task.userName}
+               li.p-2 #{task.userPost}
+               div(class="footer-post px-2 ")
+                 div(class="container-flud d-flex justify-content-end align-items-end p-1")
+                   span(class="") #{task.userDate}
