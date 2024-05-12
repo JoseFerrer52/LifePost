@@ -12,4 +12,4 @@ LifePost is an MVC that using the JavaScript execution environment Node js and E
 4. Go to http://localhost:5500/ at your browser to see the app
 
 # App running
-5. [View the application]()
+5. [View the application](https://lifepost.vercel.app)
