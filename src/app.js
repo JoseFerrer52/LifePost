@@ -8,9 +8,7 @@ import { routerError} from "./utils/routerError.js";
 import { resError } from "./utils/resError.js";
 import {router}  from "./routes/index.js";
 import pug from "pug"
-import dontev from "dotenv"
 
-dontev.config()
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url)); 
 const port = process.env.PORT || 5500;
@@ -41,6 +39,5 @@ app.use((error, req, res, next)=>{
 
 
 
-app.listen(port, () => {
-  //console.log(`La aplicación está funcionando en el puerto ${port}`);
-});
+
+export {app}
