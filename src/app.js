@@ -11,7 +11,6 @@ import pug from "pug"
 
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url)); 
-const port = process.env.PORT || 5500;
 
 app.set("views", join(__dirname, "views"));
 app.set("view engine", pug);
